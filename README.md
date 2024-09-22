@@ -134,3 +134,7 @@ std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
 This code snippet enables the use of the << operator with Fixed objects, allowing them to be printed directly to output streams by first converting them to their floating-point representation via the toFloat() member function.
 The compiler looks for an operator<< function that matches the types on both sides of the operator.
 It finds the overloaded operator<< function we've defined, which accepts an std::ostream on the left and a Fixed object on the right.
+
+# const in the end of a member function
+
+The `const` at the end of the function declaration `int toInt(void) const;` in C++ indicates that this member function does not modify any member variables of the object on which it is called. This allows the function to be called on `const` instances of the class. It's a promise that the function is read-only with respect to the object state.
