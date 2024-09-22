@@ -20,10 +20,10 @@ public:
     void setRawBits(int const raw); //sets the raw value of the fixed-point number
 
     Fixed &operator=(const Fixed &fixed); //copy assignment operator overload
-    Fixed& operator++(); //pre-increment operator overload
-    Fixed& operator++(int); //post-increment operator overload
-    Fixed& operator--(); //pre-decrement operator overload
-    Fixed& operator--(int); //post-decrement operator overload
+    Fixed operator++(); //pre-increment operator overload
+    Fixed operator++(int); //post-increment operator overload
+    Fixed operator--(); //pre-decrement operator overload
+    Fixed operator--(int); //post-decrement operator overload
     Fixed operator+(const Fixed &fixed) const; //addition operator overload
     Fixed operator-(const Fixed &fixed) const; //subtraction operator overload
     Fixed operator*(const Fixed &fixed) const; //multiplication operator overload

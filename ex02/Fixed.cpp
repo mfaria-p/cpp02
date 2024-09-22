@@ -68,29 +68,29 @@ Fixed &Fixed::operator=(const Fixed &fixed)
     return *this;
 }
 
-Fixed &Fixed::operator++()
+Fixed Fixed::operator++()
 {
     _value++;
     return *this;
 }
 
-Fixed &Fixed::operator++(int)
+Fixed Fixed::operator++(int)
 {
-   Fixed tmp= *this;
-   ++_value;
+   Fixed tmp(*this);
+   _value++;
     return tmp; 
 }
 
-Fixed &Fixed::operator--()
+Fixed Fixed::operator--()
 {
     _value--;
     return *this;
 }
 
-Fixed &Fixed::operator--(int)
+Fixed Fixed::operator--(int)
 {
-    Fixed tmp= *this;
-    --_value;
+    Fixed tmp(*this);
+    _value--;
     return tmp;
 }
 
