@@ -100,3 +100,37 @@ The copy constructor uses the copy assignment operator (operator=) of the Fixed 
 
 # this
 In C++, this is a keyword that refers to the pointer to the current object instance that the method (or member function) is operating on. When you use this in a member function of a class, it points to the object for which the member function was called. **Dereferencing this yields the current object itself, not just a pointer to it.**
+
+# Integer to Fixed-Point Number
+
+```cpp
+Fixed::Fixed(const int value)
+{
+    std::cout << "Int constructor called" << std::endl;
+    _value = value << _fractionalBits;
+}
+```
+We want to convert an integer to a fixed-point representation with 8 bits reserved for the fractional part.
+This technique is often used in fixed-point arithmetic to convert an integer to a fixed-point representation, where _fractionalBits determines the number of bits used to represent the fractional part of the number.
+
+# Integer to Fixed-Point Number
+```cpp
+Fixed::Fixed(const float value)
+{
+    std::cout << "Float constructor called" << std::endl;
+    _value = roundf(value * (float)(1 << _fractionalBits));
+}
+```
+The roundf function is used to round the result of the multiplication to the nearest integer. This is necessary because the internal representation is an integer type, and this step ensures the value is correctly rounded after scaling.
+
+# Insertion poperator assignment 
+```cpp
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
+{
+    out << fixed.toFloat();
+    return out;
+}
+```
+This code snippet enables the use of the << operator with Fixed objects, allowing them to be printed directly to output streams by first converting them to their floating-point representation via the toFloat() member function.
+The compiler looks for an operator<< function that matches the types on both sides of the operator.
+It finds the overloaded operator<< function we've defined, which accepts an std::ostream on the left and a Fixed object on the right.

@@ -16,6 +16,8 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
+//When you use the assignment operator, like a = b; where both a and b 
+//are objects of type Fixed, a.operator=(b); is implicitly called.
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
     if (this != &fixed)
